@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 const CardDiv = styled.div`
     width: 20%;
-    min-height: 25%;
+    min-height: 400px;
     margin: 2%;
     background-color: khaki;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     padding-bottom: 1rem;
@@ -21,7 +21,6 @@ const CardDiv = styled.div`
 const PersonName = styled.h3`
     
     font-size: 2rem;
-
     margin: 1rem auto;
 `;
 
@@ -29,7 +28,7 @@ const CategoryHeader = styled.h4`
     font-size: 1.5rem;
     font-weight: bold;
 
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
 `;
 
 const Details = styled.div`
