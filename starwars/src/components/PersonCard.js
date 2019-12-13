@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const CardDiv = styled.div`
     width: 20%;
+    min-height: 25%;
     margin: 2%;
     background-color: khaki;
 
@@ -19,43 +20,54 @@ const CardDiv = styled.div`
 
 const PersonName = styled.h3`
     
-    font-size: 3rem;
+    font-size: 2rem;
 
     margin: 1rem auto;
 `;
 
 const CategoryHeader = styled.h4`
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 
     margin-bottom: 0;
 `;
 
-const Details = styled.p`
-    font-size: 1.5rem;
+const Details = styled.div`
+    font-size: 1rem;
 
     margin: 0 auto;
 `;
 
 
-// const PersonHome = styled.p`
-//     font-size: 2rem;
-// `;
+const Film = styled.p`
+    font-style: oblique;
+    line-height: 1.5rem;
+    margin: 0;
+`;
 
-// const PersonFilms = styled.p`
-//     font-size: 2rem;
-// `;
+function createFilmList(filmsAppearedIn, releasedFilms) {
+    
+    let romanNumerals = "0 I II III IV V VI VII".split(" ");
 
+    if (filmsAppearedIn.length === 0)
+        { return "none"; }
+
+    return filmsAppearedIn.map(film => {
+        return (
+            <Film>{romanNumerals[film]}: {releasedFilms[film]}</Film>
+        )
+    });
+}
 
 const PersonCard = function (props) {
 
     return (
         <CardDiv>
             <PersonName>{props.name}</PersonName>
-            <CategoryHeader>Homeworld:</CategoryHeader>
-                <Details>{props.homeWorld}</Details>
+            <CategoryHeader>Height:</CategoryHeader>
+                <Details>{props.height} cm</Details>
             <CategoryHeader>Films:</CategoryHeader>
-                <Details>{props.films}</Details>
+                <Details>{createFilmList(props.films, props.releasedFilms)}</Details>
         </CardDiv>
     )
 }
